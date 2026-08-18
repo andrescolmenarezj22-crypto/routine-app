@@ -29,24 +29,24 @@
 
 /* ============ DARK THEME (default) ============ */
 [data-theme="dark"] {
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16162a;
-  --bg-tertiary: #111122;
-  --bg-card: #222240;
-  --bg-card-hover: #2a2a50;
-  --bg-sidebar: #12122a;
-  --bg-titlebar: #0e0e20;
-  --text-primary: #e8e8f0;
-  --text-secondary: #b0b0cc;
-  --text-muted: #6a6a8a;
-  --border-color: #2e2e50;
-  --border-hover: #3e3e60;
+  --bg-primary: #111111;
+  --bg-secondary: #0d0d0d;
+  --bg-tertiary: #1a1a1a;
+  --bg-card: #1c1c1c;
+  --bg-card-hover: #242424;
+  --bg-sidebar: #0a0a0a;
+  --bg-titlebar: #080808;
+  --text-primary: #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-muted: #5a5a5a;
+  --border-color: #262626;
+  --border-hover: #333333;
   --accent: #7c3aed;
   --accent-hover: #6d28d9;
 }
 
 [data-theme="dark"] body {
-  background: radial-gradient(ellipse at center, #2a2a3e 0%, #1a1a2e 35%, #0a0a14 100%);
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #111111 35%, #050505 100%);
   background-attachment: fixed;
 }
 
@@ -72,7 +72,7 @@
   background: #ffffff;
 }
 
-/* ============ GLOBAL ============ */
+/* ============ GLOBAL SPACING ============ */
 * {
   margin: 0;
   padding: 0;
@@ -83,12 +83,17 @@ html, body, #root {
   height: 100%;
   overflow: hidden;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
 }
 
 body {
   color: var(--text-primary);
   transition: background 0.4s ease, color 0.3s ease;
 }
+
+/* Global spacing helpers */
+.space-bot-lg > * + * { margin-top: 1.25rem; }
+.space-bot-xl > * + * { margin-top: 1.75rem; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -135,7 +140,7 @@ body {
 
 /* Glass effect */
 .glass {
-  background: rgba(34, 34, 64, 0.6);
+  background: rgba(28, 28, 28, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }

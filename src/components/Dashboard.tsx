@@ -23,35 +23,35 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
   ]
 
   return (
-    <div className="animate-fadeIn space-y-6">
+    <div className="animate-fadeIn space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Dashboard</h1>
-          <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>Resumen de tu día</p>
+          <h1 className="text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>Dashboard</h1>
+          <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>Resumen de tu día</p>
         </div>
         <button
           onClick={() => onNavigate('routines')}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-white text-sm font-medium transition-all hover:opacity-90"
+          className="flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-medium transition-all hover:opacity-90"
           style={{ background: 'var(--accent)' }}
         >
           <FiPlus size={16} /> Nueva Rutina
         </button>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-5">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="p-4 rounded-xl glass"
+            className="p-5 rounded-xl glass"
             style={{ border: '1px solid var(--border-color)' }}
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: `${stat.color}20` }}>
-                <stat.icon size={20} style={{ color: stat.color }} />
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${stat.color}20` }}>
+                <stat.icon size={22} style={{ color: stat.color }} />
               </div>
               <div>
                 <p className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{stat.value}</p>
-                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
               </div>
             </div>
           </div>
@@ -59,8 +59,8 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
       </div>
 
       {totalTasks > 0 && (
-        <div className="p-4 rounded-xl glass" style={{ border: '1px solid var(--border-color)' }}>
-          <div className="flex items-center justify-between mb-2">
+        <div className="p-5 rounded-xl glass" style={{ border: '1px solid var(--border-color)' }}>
+          <div className="flex items-center justify-between mb-3">
             <span className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>Progreso General</span>
             <span className="text-sm font-bold" style={{ color: 'var(--accent)' }}>{progress}%</span>
           </div>
@@ -73,9 +73,9 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
         </div>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-5">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Tus Rutinas</h2>
+          <h2 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Tus Rutinas</h2>
           <button
             onClick={() => onNavigate('routines')}
             className="flex items-center gap-1 text-sm font-medium transition-colors"
@@ -86,19 +86,19 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
         </div>
 
         {routines.length === 0 ? (
-          <div className="text-center py-12 rounded-xl glass" style={{ border: '1px solid var(--border-color)' }}>
-            <FiClock size={40} className="mx-auto mb-3" style={{ color: 'var(--text-muted)' }} />
-            <p style={{ color: 'var(--text-muted)' }}>No hay rutinas aún</p>
+          <div className="text-center py-16 rounded-xl glass" style={{ border: '1px solid var(--border-color)' }}>
+            <FiClock size={48} className="mx-auto mb-4" style={{ color: 'var(--text-muted)' }} />
+            <p className="text-lg" style={{ color: 'var(--text-muted)' }}>No hay rutinas aún</p>
             <button
               onClick={() => onNavigate('routines')}
-              className="mt-3 px-4 py-2 rounded-lg text-white text-sm font-medium"
+              className="mt-5 px-6 py-3 rounded-xl text-white text-sm font-medium"
               style={{ background: 'var(--accent)' }}
             >
               Crear primera rutina
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-5">
             {routines.map((routine) => {
               const done = routine.tasks.filter((t) => t.completed).length
               const total = routine.tasks.length
@@ -108,47 +108,47 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
                 <div
                   key={routine.id}
                   onClick={() => onEditRoutine(routine)}
-                  className="p-4 rounded-xl glass cursor-pointer transition-all hover:scale-[1.01]"
+                  className="p-5 rounded-xl glass cursor-pointer transition-all hover:scale-[1.01]"
                   style={{ border: '1px solid var(--border-color)' }}
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: `${routine.color}30` }}>
-                      <FiClock size={18} style={{ color: routine.color }} />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: `${routine.color}30` }}>
+                      <FiClock size={20} style={{ color: routine.color }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold truncate" style={{ color: 'var(--text-primary)' }}>{routine.name}</h3>
-                      <p className="text-xs truncate" style={{ color: 'var(--text-muted)' }}>{routine.description}</p>
+                      <h3 className="font-semibold text-base truncate" style={{ color: 'var(--text-primary)' }}>{routine.name}</h3>
+                      <p className="text-xs mt-1 truncate" style={{ color: 'var(--text-muted)' }}>{routine.description}</p>
                     </div>
                   </div>
 
                   {total > 0 && (
-                    <div className="space-y-1.5">
+                    <div className="space-y-2">
                       <div className="flex items-center justify-between text-xs" style={{ color: 'var(--text-secondary)' }}>
                         <span>{done}/{total} tareas</span>
                         <span style={{ color: routine.color }}>{pct}%</span>
                       </div>
-                      <div className="w-full h-1.5 rounded-full" style={{ background: 'var(--bg-tertiary)' }}>
+                      <div className="w-full h-2 rounded-full" style={{ background: 'var(--bg-tertiary)' }}>
                         <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: routine.color }} />
                       </div>
                     </div>
                   )}
 
                   {routine.tasks.length > 0 && (
-                    <div className="mt-3 space-y-1">
+                    <div className="mt-4 space-y-2">
                       {routine.tasks.slice(0, 3).map((task) => (
                         <div
                           key={task.id}
                           onClick={(e) => { e.stopPropagation(); onToggleTask(routine.id, task.id) }}
-                          className="flex items-center gap-2 cursor-pointer group"
+                          className="flex items-center gap-3 cursor-pointer group"
                         >
                           <div
-                            className="w-4 h-4 rounded border-2 flex items-center justify-center transition-all"
+                            className="w-5 h-5 rounded border-2 flex items-center justify-center transition-all shrink-0"
                             style={{
                               borderColor: task.completed ? routine.color : 'var(--border-color)',
                               background: task.completed ? routine.color : 'transparent',
                             }}
                           >
-                            {task.completed && <FiCheckCircle size={10} className="text-white" />}
+                            {task.completed && <FiCheckCircle size={11} className="text-white" />}
                           </div>
                           <span
                             className="text-xs transition-all"
@@ -162,7 +162,7 @@ export default function Dashboard({ routines, onNavigate, onEditRoutine, onToggl
                         </div>
                       ))}
                       {routine.tasks.length > 3 && (
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                        <p className="text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
                           +{routine.tasks.length - 3} más
                         </p>
                       )}
