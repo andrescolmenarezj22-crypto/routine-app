@@ -72,8 +72,8 @@ export default function ReminderPanel({ routines, setRoutines }: Props) {
                 </div>
                 <button
                   onClick={() => addReminderToRoutine(routine.id)}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-white"
-                  style={{ background: routine.color }}
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium"
+                  style={{ background: routine.color, color: 'var(--text-on-accent)' }}
                 >
                   <FiPlus size={12} /> Recordatorio
                 </button>
@@ -127,7 +127,8 @@ export default function ReminderPanel({ routines, setRoutines }: Props) {
                       </button>
                       <button
                         onClick={() => removeReminder(routine.id, rem.id)}
-                        className="p-2 rounded-lg hover:bg-red-500/20 text-red-400"
+                        className="p-2 rounded-lg"
+                        style={{ color: 'var(--color-danger)' }}
                       >
                         <FiTrash2 size={14} />
                       </button>

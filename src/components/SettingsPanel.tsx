@@ -105,7 +105,7 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
               className="flex-1 py-3 rounded-xl text-sm font-medium transition-all"
               style={{
                 background: settings.fontSize === size ? 'var(--accent)' : 'var(--bg-tertiary)',
-                color: settings.fontSize === size ? '#fff' : 'var(--text-secondary)',
+                color: settings.fontSize === size ? 'var(--text-on-accent)' : 'var(--text-secondary)',
                 border: `1px solid ${settings.fontSize === size ? 'var(--accent)' : 'var(--border-color)'}`,
               }}
             >
@@ -136,8 +136,8 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
               style={{ background: settings.notificationsEnabled ? 'var(--accent)' : 'var(--bg-secondary)' }}
             >
               <div
-                className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
-                style={{ left: settings.notificationsEnabled ? '26px' : '2px' }}
+                className="absolute top-0.5 w-5 h-5 rounded-full transition-all"
+                style={{ background: 'var(--toggle-knob)', left: settings.notificationsEnabled ? '26px' : '2px' }}
               />
             </div>
           </button>
@@ -159,8 +159,8 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
               style={{ background: settings.soundEnabled ? 'var(--accent)' : 'var(--bg-secondary)' }}
             >
               <div
-                className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-all"
-                style={{ left: settings.soundEnabled ? '26px' : '2px' }}
+                className="absolute top-0.5 w-5 h-5 rounded-full transition-all"
+                style={{ background: 'var(--toggle-knob)', left: settings.soundEnabled ? '26px' : '2px' }}
               />
             </div>
           </button>
@@ -174,10 +174,10 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
           <h2 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Instalar RoutineApp</h2>
         </div>
         {isInstalled ? (
-          <div className="flex items-center gap-3 p-4 rounded-xl" style={{ background: 'rgba(16,185,129,0.1)' }}>
-            <FiDownload size={18} className="text-green-400" />
+          <div className="flex items-center gap-3 p-4 rounded-xl" style={{ background: 'var(--color-success-bg)' }}>
+            <FiDownload size={18} style={{ color: 'var(--color-success)' }} />
             <div>
-              <p className="text-sm font-medium text-green-400">La app ya esta instalada</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--color-success)' }}>La app ya esta instalada</p>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>RoutineApp se ejecuta como aplicacion independiente</p>
             </div>
           </div>
@@ -188,8 +188,8 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
             </p>
             <button
               onClick={handleInstallPWA}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-white text-sm font-semibold transition-all hover:opacity-90"
-              style={{ background: 'var(--accent)' }}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
+              style={{ background: 'var(--accent)', color: 'var(--text-on-accent)' }}
             >
               <FiDownload size={16} /> Instalar App (PWA)
             </button>
@@ -256,8 +256,8 @@ export default function SettingsPanel({ settings, onUpdate }: Props) {
         </div>
         <button
           onClick={() => { if (confirm('¿Borrar todos los datos?')) { localStorage.clear(); window.location.reload() } }}
-          className="w-full py-3 rounded-xl text-sm font-medium text-red-400 transition-all hover:bg-red-500/10"
-          style={{ border: '1px solid var(--border-color)' }}
+          className="w-full py-3 rounded-xl text-sm font-medium transition-all"
+          style={{ color: 'var(--color-danger)', border: '1px solid var(--border-color)' }}
         >
           Borrar Todos los Datos
         </button>

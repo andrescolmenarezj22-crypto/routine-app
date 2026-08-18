@@ -48,7 +48,7 @@ export default function Sidebar({ view, onNavigate, collapsed, onToggleCollapse 
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group"
               style={{
                 background: active ? 'var(--accent)' : 'transparent',
-                color: active ? '#fff' : 'var(--text-secondary)',
+                color: active ? 'var(--text-on-accent)' : 'var(--text-secondary)',
               }}
             >
               <item.icon size={18} />
@@ -61,7 +61,7 @@ export default function Sidebar({ view, onNavigate, collapsed, onToggleCollapse 
       <div className="px-2 pb-3">
         <button
           onClick={onToggleCollapse}
-          className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-white/5"
+          className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-colors"
           style={{ color: 'var(--text-muted)' }}
         >
           {collapsed ? <FiChevronRight size={16} /> : <FiChevronLeft size={16} />}

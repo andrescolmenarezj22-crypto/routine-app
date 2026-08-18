@@ -16,21 +16,21 @@ export default function TitleBar() {
       <div className="no-drag flex items-center gap-0.5">
         <button
           onClick={() => window.electronAPI?.minimize()}
-          className="w-8 h-7 flex items-center justify-center rounded hover:bg-white/10 transition-colors"
+          className="w-8 h-7 flex items-center justify-center rounded transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >
           <FiMinimize size={13} />
         </button>
         <button
           onClick={() => window.electronAPI?.maximize()}
-          className="w-8 h-7 flex items-center justify-center rounded hover:bg-white/10 transition-colors"
+          className="w-8 h-7 flex items-center justify-center rounded transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >
           <FiMaximize2 size={13} />
         </button>
         <button
           onClick={() => window.electronAPI?.close()}
-          className="w-8 h-7 flex items-center justify-center rounded hover:bg-red-500/80 transition-colors"
+          className="w-8 h-7 flex items-center justify-center rounded transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >
           <FiX size={14} />

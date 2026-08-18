@@ -51,7 +51,7 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
           <h2 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
             {routine ? 'Editar Rutina' : 'Nueva Rutina'}
           </h2>
-          <button onClick={onClose} className="p-2 rounded-lg hover:bg-white/10" style={{ color: 'var(--text-muted)' }}>
+          <button onClick={onClose} className="p-2 rounded-lg" style={{ color: 'var(--text-muted)' }}>
             <FiX size={18} />
           </button>
         </div>
@@ -111,7 +111,7 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
                 className="flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-all"
                 style={{
                   background: tab === t.id ? 'var(--accent)' : 'transparent',
-                  color: tab === t.id ? '#fff' : 'var(--text-secondary)',
+                  color: tab === t.id ? 'var(--text-on-accent)' : 'var(--text-secondary)',
                 }}
               >
                 <t.icon size={14} /> {t.label} ({t.count})
@@ -147,7 +147,7 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
                     style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border-color)' }}
                     placeholder="Nota (opcional)"
                   />
-                  <button onClick={() => removeTask(task.id)} className="p-2 rounded-md hover:bg-red-500/20 text-red-400">
+                  <button onClick={() => removeTask(task.id)} className="p-2 rounded-md" style={{ color: 'var(--color-danger)' }}>
                     <FiTrash2 size={14} />
                   </button>
                 </div>
@@ -186,12 +186,12 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
                       className="px-3 py-2 rounded-md text-xs font-medium transition-all"
                       style={{
                         background: alarm.enabled ? 'var(--accent)' : 'var(--bg-secondary)',
-                        color: alarm.enabled ? '#fff' : 'var(--text-muted)',
+                        color: alarm.enabled ? 'var(--text-on-accent)' : 'var(--text-muted)',
                       }}
                     >
                       {alarm.enabled ? 'Activa' : 'Inactiva'}
                     </button>
-                    <button onClick={() => removeAlarm(alarm.id)} className="p-2 rounded-md hover:bg-red-500/20 text-red-400">
+                    <button onClick={() => removeAlarm(alarm.id)} className="p-2 rounded-md" style={{ color: 'var(--color-danger)' }}>
                       <FiTrash2 size={14} />
                     </button>
                   </div>
@@ -209,7 +209,7 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
                           className="px-2.5 py-1 rounded text-xs font-medium transition-all"
                           style={{
                             background: active ? 'var(--accent)' : 'var(--bg-secondary)',
-                            color: active ? '#fff' : 'var(--text-muted)',
+                            color: active ? 'var(--text-on-accent)' : 'var(--text-muted)',
                           }}
                         >
                           {day}
@@ -259,14 +259,14 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
                     className="px-3 py-2 rounded-md text-xs font-medium transition-all"
                     style={{
                       background: rem.enabled ? 'var(--accent)' : 'var(--bg-secondary)',
-                      color: rem.enabled ? '#fff' : 'var(--text-muted)',
+                      color: rem.enabled ? 'var(--text-on-accent)' : 'var(--text-muted)',
                     }}
                   >
                     {rem.enabled ? 'On' : 'Off'}
                   </button>
-                  <button onClick={() => removeReminder(rem.id)} className="p-2 rounded-md hover:bg-red-500/20 text-red-400">
-                    <FiTrash2 size={14} />
-                  </button>
+                    <button onClick={() => removeReminder(rem.id)} className="p-2 rounded-md" style={{ color: 'var(--color-danger)' }}>
+                      <FiTrash2 size={14} />
+                    </button>
                 </div>
               ))}
               <button
@@ -290,8 +290,8 @@ export default function RoutineForm({ routine, onSave, onClose }: Props) {
           </button>
           <button
             onClick={() => onSave(data)}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90"
-            style={{ background: 'var(--accent)' }}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all hover:opacity-90"
+            style={{ background: 'var(--accent)', color: 'var(--text-on-accent)' }}
           >
             <FiSave size={14} /> {routine ? 'Guardar Cambios' : 'Crear Rutina'}
           </button>

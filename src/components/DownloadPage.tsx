@@ -73,40 +73,40 @@ export default function DownloadPage() {
   }
 
   return (
-    <div className="min-h-full" style={{ background: 'linear-gradient(135deg, #0f0a1a 0%, #1a1030 50%, #0d0d1a 100%)' }}>
+    <div className="min-h-full" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)' }}>
-            <FiDownload size={14} className="text-purple-400" />
-            <span className="text-sm font-medium text-purple-300">PWA - Multiplataforma</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border-color)' }}>
+            <FiDownload size={14} style={{ color: 'var(--accent)' }} />
+            <span className="text-sm font-medium" style={{ color: 'var(--accent)' }}>PWA - Multiplataforma</span>
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
-            Routine<span className="text-purple-400">App</span>
+          <h1 className="text-5xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
+            Routine<span style={{ color: 'var(--accent)' }}>App</span>
           </h1>
-          <p className="text-lg text-gray-400 max-w-xl mx-auto mb-6">
+          <p className="text-lg max-w-xl mx-auto mb-6" style={{ color: 'var(--text-secondary)' }}>
             Una sola app que funciona en Windows, Android e iOS. Siempre actualizada, siempre sincronizada.
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <FiExternalLink size={14} className="text-purple-400" />
-            <span className="text-sm text-gray-400 font-mono">{BASE_URL}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border-color)' }}>
+            <FiExternalLink size={14} style={{ color: 'var(--accent)' }} />
+            <span className="text-sm font-mono" style={{ color: 'var(--text-secondary)' }}>{BASE_URL}</span>
           </div>
         </div>
 
         {isInstalled ? (
-          <div className="mb-12 p-6 rounded-2xl text-center" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)' }}>
-            <FiCheckCircle size={40} className="mx-auto mb-3 text-green-400" />
-            <h2 className="text-xl font-bold text-green-400 mb-2">App Instalada</h2>
-            <p className="text-sm text-gray-400">RoutineApp esta instalada en tu dispositivo. Abrela desde tu pantalla de inicio.</p>
+          <div className="mb-12 p-6 rounded-2xl text-center" style={{ background: 'var(--color-success-bg)', border: '1px solid rgba(16,185,129,0.3)' }}>
+            <FiCheckCircle size={40} className="mx-auto mb-3" style={{ color: 'var(--color-success)' }} />
+            <h2 className="text-xl font-bold mb-2" style={{ color: 'var(--color-success)' }}>App Instalada</h2>
+            <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>RoutineApp esta instalada en tu dispositivo. Abrela desde tu pantalla de inicio.</p>
           </div>
         ) : deferredPrompt ? (
-          <div className="mb-12 p-8 rounded-2xl text-center" style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.3)' }}>
-            <FiDownload size={40} className="mx-auto mb-4 text-purple-400" />
-            <h2 className="text-xl font-bold text-white mb-2">Instalar RoutineApp</h2>
-            <p className="text-sm text-gray-400 mb-6">Instala la app en tu dispositivo para acceso rapido y uso sin conexion.</p>
+          <div className="mb-12 p-8 rounded-2xl text-center" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+            <FiDownload size={40} className="mx-auto mb-4" style={{ color: 'var(--accent)' }} />
+            <h2 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Instalar RoutineApp</h2>
+            <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>Instala la app en tu dispositivo para acceso rapido y uso sin conexion.</p>
             <button
               onClick={handleInstall}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white text-lg font-bold transition-all hover:opacity-90"
-              style={{ background: '#7c3aed', boxShadow: '0 4px 30px rgba(124,58,237,0.4)' }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-bold transition-all hover:opacity-90"
+              style={{ background: 'var(--accent)', color: 'var(--text-on-accent)', boxShadow: '0 4px 30px rgba(124,58,237,0.4)' }}
             >
               <FiDownload size={20} /> Instalar Ahora
             </button>
@@ -118,21 +118,21 @@ export default function DownloadPage() {
             <div
               key={p.name}
               className="rounded-2xl p-6 transition-all hover:scale-[1.02]"
-              style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${p.color}40` }}
+              style={{ background: 'var(--bg-card)', border: `1px solid ${p.color}40` }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: p.color + '20' }}>
                   <p.icon size={24} style={{ color: p.color }} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">{p.name}</h3>
-                  <p className="text-xs text-gray-500">{p.description}</p>
+                  <h3 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{p.name}</h3>
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{p.description}</p>
                 </div>
               </div>
               <ol className="space-y-2">
                 {p.steps.map((step, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
-                    <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white shrink-0" style={{ background: p.color }}>
+                  <li key={i} className="flex items-start gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
+                    <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0" style={{ background: p.color, color: 'var(--text-on-accent)' }}>
                       {i + 1}
                     </span>
                     {step}
@@ -143,32 +143,32 @@ export default function DownloadPage() {
           ))}
         </div>
 
-        <div className="rounded-2xl p-8 mb-12" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Todo incluido</h2>
+        <div className="rounded-2xl p-8 mb-12" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+          <h2 className="text-2xl font-bold mb-6 text-center" style={{ color: 'var(--text-primary)' }}>Todo incluido</h2>
           <div className="grid md:grid-cols-2 gap-4">
             {features.map((f) => (
-              <div key={f} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: 'rgba(124,58,237,0.05)' }}>
-                <FiCheckCircle size={18} className="text-purple-400 shrink-0" />
-                <span className="text-sm text-gray-300">{f}</span>
+              <div key={f} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: 'var(--bg-tertiary)' }}>
+                <FiCheckCircle size={18} className="shrink-0" style={{ color: 'var(--accent)' }} />
+                <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{f}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="rounded-2xl p-8 mb-12" style={{ background: 'rgba(124,58,237,0.05)', border: '1px solid rgba(124,58,237,0.15)' }}>
-          <h2 className="text-xl font-bold text-white mb-3 text-center">Una sola app, todas las plataformas</h2>
-          <p className="text-sm text-gray-400 text-center mb-4">
+        <div className="rounded-2xl p-8 mb-12" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+          <h2 className="text-xl font-bold mb-3 text-center" style={{ color: 'var(--text-primary)' }}>Una sola app, todas las plataformas</h2>
+          <p className="text-sm text-center mb-4" style={{ color: 'var(--text-secondary)' }}>
             RoutineApp es una Progressive Web App (PWA). Se instala como una app nativa en cualquier dispositivo
             y se actualiza automaticamente. Los mismos datos, la misma experiencia, en todas partes.
           </p>
-          <div className="flex items-center justify-center gap-2 text-purple-300">
+          <div className="flex items-center justify-center gap-2" style={{ color: 'var(--accent)' }}>
             <FiRefreshCw size={16} />
             <span className="text-sm font-medium">Actualizaciones automaticas en todas las plataformas</span>
           </div>
         </div>
 
         <div className="text-center">
-          <p className="text-gray-500 text-sm">
+          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             RoutineApp v1.0.0 &mdash; PWA Multiplataforma
           </p>
         </div>
