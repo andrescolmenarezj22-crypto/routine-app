@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; manifest-src 'self';" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/routine-app/favicon.svg" />
+    <link rel="manifest" href="/routine-app/manifest.json" />
+    <link rel="apple-touch-icon" href="/routine-app/icon-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#7c3aed" />
     <meta name="description" content="RoutineApp - Organiza tu dia con rutinas, alarmas, recordatorios y frases motivacionales" />
@@ -19,7 +20,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(() => {})
+          navigator.serviceWorker.register('/routine-app/sw.js').catch(() => {})
         })
       }
     </script>
